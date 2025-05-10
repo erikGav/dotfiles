@@ -1,0 +1,3 @@
+com.stremio.Stremio
+org.torproject.torbrowser-launcher
+org.vinegarhq.Sober
