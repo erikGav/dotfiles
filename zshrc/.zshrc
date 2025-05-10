@@ -20,8 +20,6 @@ export EDITOR="code --wait"
 export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config/"
 
-
-
 alias cls=clear
 alias python=python3
 alias cat="batcat --paging=never"
@@ -55,5 +53,3 @@ srmr() {
     fi
   done
 }
-
-
