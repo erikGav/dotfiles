@@ -49,5 +49,6 @@ for dir in */; do
   stow "$dir"
 done
 
+cp ./fonts/* ~/.local/share/fonts
 source ~/.zshrc
 echo "✅ Done."
