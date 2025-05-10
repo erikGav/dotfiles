@@ -1,4 +1,4 @@
-aws-cli
+aws-cli --classic
 bare
 core18
 core20

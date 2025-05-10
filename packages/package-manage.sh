@@ -161,7 +161,7 @@ restore_packages() {
         # Actually install packages
         echo "Installing APT packages..."
         # Use xargs to handle empty files or large lists
-        cat "$apt_file" | xargs -r sudo apt-get install -y
+        cat "$apt_file" | xargs -r -n 1 sh -c 'apt-get install -y "$0"'
         
         echo "Installing Snap packages..."
         while read -r package || [ -n "$package" ]; do
