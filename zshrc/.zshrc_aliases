@@ -1,0 +1,160 @@
+alias cls=clear
+alias python=python3
+alias cat="batcat --paging=never"
+alias c="xclip -selection clipboard"
+alias v="xclip -selection clipboard -o"
+alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z999XGKFNUDvppTaPzXjJGUCMI1bM9.1"'
+
+### General / Context / Apply / Logs / Port-forward
+alias k='kubectl'
+alias kaf='kubectl apply -f'
+alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
+alias kccc='kubectl config current-context'
+alias kcdc='kubectl config delete-context'
+alias kcgc='kubectl config get-contexts'
+alias kcn='kubectl config set-context --current --namespace'
+alias kcsc='kubectl config set-context'
+alias kcuc='kubectl config use-context'
+alias kcp='kubectl cp'
+alias kl='kubectl logs'
+alias kl1h='kubectl logs --since 1h'
+alias kl1m='kubectl logs --since 1m'
+alias kl1s='kubectl logs --since 1s'
+alias klf='kubectl logs -f'
+alias klf1h='kubectl logs --since 1h -f'
+alias klf1m='kubectl logs --since 1m -f'
+alias klf1s='kubectl logs --since 1s -f'
+alias kpf='kubectl port-forward'
+
+### Pods
+alias kgp='kubectl get pods'
+alias kgpa='kubectl get pods --all-namespaces'
+alias kgpall='kubectl get pods --all-namespaces -o wide'
+alias kgpsl='kubectl get pods --show-labels'
+alias kdp='kubectl describe pods'
+alias kep='kubectl edit pods'
+alias kdelp='kubectl delete pods'
+
+### Deployments
+alias kgd='kubectl get deployment'
+alias kgda='kubectl get deployment --all-namespaces'
+alias kdd='kubectl describe deployment'
+alias ked='kubectl edit deployment'
+alias kdeld='kubectl delete deployment'
+alias ksd='kubectl scale deployment'
+alias krsd='kubectl rollout status deployment'
+
+### StatefulSets
+alias kgss='kubectl get statefulset'
+alias kgssa='kubectl get statefulset --all-namespaces'
+alias kdss='kubectl describe statefulset'
+alias kess='kubectl edit statefulset'
+alias kdelss='kubectl delete statefulset'
+alias ksss='kubectl scale statefulset'
+alias krsss='kubectl rollout status statefulset'
+
+### DaemonSets
+alias kgds='kubectl get daemonset'
+alias kgdsa='kubectl get daemonset --all-namespaces'
+alias kdds='kubectl describe daemonset'
+alias keds='kubectl edit daemonset'
+alias kdelds='kubectl delete daemonset'
+
+### ReplicaSets
+alias kgrs='kubectl get replicaset'
+alias kdrs='kubectl describe replicaset'
+alias kers='kubectl edit replicaset'
+
+### Jobs
+alias kgj='kubectl get job'
+alias kdj='kubectl describe job'
+alias kej='kubectl edit job'
+alias kdelj='kubectl delete job'
+
+### CronJobs
+alias kgcj='kubectl get cronjob'
+alias kdcj='kubectl describe cronjob'
+alias kecj='kubectl edit cronjob'
+alias kdelcj='kubectl delete cronjob'
+
+### Services
+alias kgs='kubectl get svc'
+alias kgsa='kubectl get svc --all-namespaces'
+alias kds='kubectl describe svc'
+alias kes='kubectl edit svc'
+alias kdels='kubectl delete svc'
+
+### Ingresses
+alias kgi='kubectl get ingress'
+alias kgia='kubectl get ingress --all-namespaces'
+alias kdi='kubectl describe ingress'
+alias kei='kubectl edit ingress'
+alias kdeli='kubectl delete ingress'
+
+### ConfigMaps
+alias kgcm='kubectl get configmaps'
+alias kgcma='kubectl get configmaps --all-namespaces'
+alias kdcm='kubectl describe configmap'
+alias kecm='kubectl edit configmap'
+alias kdelcm='kubectl delete configmap'
+
+### Secrets
+alias kgsec='kubectl get secret'
+alias kgseca='kubectl get secret --all-namespaces'
+alias kdsec='kubectl describe secret'
+alias kdelsec='kubectl delete secret'
+
+### PersistentVolumeClaims (PVC)
+alias kgpvc='kubectl get pvc'
+alias kgpvca='kubectl get pvc --all-namespaces'
+alias kdpvc='kubectl describe pvc'
+alias kepvc='kubectl edit pvc'
+alias kdelpvc='kubectl delete pvc'
+
+### PersistentVolumes (PV)
+alias kgpv='kubectl get pv'
+alias kdpv='kubectl describe pv'
+alias kepv='kubectl edit pv'
+alias kdelpv='kubectl delete pv'
+
+### StorageClasses (SC)
+alias kgsc='kubectl get storageclass'
+alias kdsc='kubectl describe storageclass'
+alias kesc='kubectl edit storageclass'
+alias kdelsc='kubectl delete storageclass'
+
+### ServiceAccounts
+alias kdsa='kubectl describe sa'
+alias kdelsa='kubectl delete sa'
+
+### Namespaces
+alias kgns='kubectl get namespaces'
+alias kdns='kubectl describe namespace'
+alias kens='kubectl edit namespace'
+alias kdelns='kubectl delete namespace'
+
+### Nodes
+alias kgno='kubectl get nodes'
+alias kgnosl='kubectl get nodes --show-labels'
+alias kdno='kubectl describe node'
+alias keno='kubectl edit node'
+alias kdelno='kubectl delete node'
+
+### Rollouts
+alias krh='kubectl rollout history'
+alias kru='kubectl rollout undo'
+
+### Exec
+alias keti='kubectl exec -t -i'
+
+### Get All
+alias kga='kubectl get all'
+alias kgaa='kubectl get all --all-namespaces'
+
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
