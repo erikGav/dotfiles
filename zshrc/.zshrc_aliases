@@ -21,8 +21,8 @@ alias kcsc='kubectl config set-context'
 alias kcdc='kubectl config delete-context'
 alias kccc='kubectl config current-context'
 alias kcgc='kubectl config get-contexts'
-alias kcn='kubectl config set-context --current --namespace'
-alias kcns='kubectl config view --minify | grep namespace | awk "{print \$2}"'
+alias kcsns='kubectl config set-context --current --namespace'
+alias kccns='kubectl config view --minify | grep namespace | awk "{print \$2}"'
 
 # Logs
 alias kl='kubectl logs'
@@ -66,8 +66,8 @@ alias kdelns='kubectl delete namespace'
 alias kgcm='kubectl get configmaps'
 alias kecm='kubectl edit configmap'
 alias kdcm='kubectl describe configmap'
-alias kgcma='kubectl get configmaps --all-namespaces'
 alias kdelcm='kubectl delete configmap'
+alias kgcma='kubectl get configmaps --all-namespaces'
 
 ### Secrets
 alias kgsec='kubectl get secret'
@@ -169,7 +169,6 @@ alias kru='kubectl rollout undo'
 alias kga='kubectl get all'
 alias kgan='kga -n'
 alias kgaa='kubectl get all --all-namespaces'
-
 
 # Dirs
 alias ..="cd .."
