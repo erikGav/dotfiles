@@ -21,23 +21,5 @@ export LANG=en_US.UTF-8
 export XDG_CONFIG_HOME="$HOME/.config/"
 
 source ~/.zshrc_aliases
+source ~/.zshrc_functions
 
-srmr() {
-  if [ $# -eq 0 ]; then
-    echo "No input provided"
-    return 1
-  fi
-
-  for target in "$@"; do
-    if [[ -f "$target" ]]; then
-      echo "Shredding file: $target"
-      shred -u -z -n 5 "$target" && echo "Deleted: $target"
-    elif [[ -d "$target" ]]; then
-      echo "Recursively shredding files in directory: $target"
-      find "$target" -type f -print -exec shred -u -z -n 5 {} \;
-      rm -r "$target" && echo "Deleted directory: $target"
-    else
-      echo "Warning: '$target' is not a file or directory, skipping."
-    fi
-  done
-}

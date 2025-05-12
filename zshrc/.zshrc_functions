@@ -1,0 +1,56 @@
+k8s_nuke() {
+    local namespace=""
+    local dry_run=false
+
+    for arg in "$@"; do
+        case "$arg" in
+        --dry-run | -d)
+            dry_run=true
+            ;;
+        *)
+            namespace="$arg"
+            ;;
+        esac
+    done
+
+    if [[ -z "$namespace" ]]; then
+        echo "Usage: k8s_nuke <namespace> [--dry-run|-d]"
+        return 1
+    fi
+
+    local resources=(
+        "pods"
+        "deployments"
+        "replicasets"
+        "statefulsets"
+        "daemonsets"
+        "jobs"
+        "cronjobs"
+        "services"
+        "ingress"
+        "pvc"
+        "configmap"
+        "secret"
+        "serviceaccount"
+    )
+
+    echo "⚠️  Target namespace: '$namespace'"
+    if $dry_run; then
+        echo "💡 Dry run mode — the following resources **would** be deleted:"
+        for res in "${resources[@]}"; do
+            echo "🔍 $res:"
+            output=$(kubectl get "$res" -n "$namespace" --no-headers 2>/dev/null | awk '{print "  - " $1}')
+            echo "${output:-  (none)}"
+        done
+        echo "❌ Namespace '$namespace' would be deleted at the end."
+    else
+        echo "🔥 Nuking resources in namespace: '$namespace'"
+        for res in "${resources[@]}"; do
+            echo "Deleting all $res..."
+            kubectl delete "$res" --all -n "$namespace"
+        done
+
+        echo "❌ Deleting namespace: $namespace"
+        kubectl delete namespace "$namespace"
+    fi
+}
