@@ -7,12 +7,14 @@ alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z
 
 # General kubectl commands
 alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl describe'
+alias kdel="kubectl delete"
 alias kaf='kubectl apply -f'
 alias kca='_kca(){ kubectl "$@" --all-namespaces;  unset -f _kca; }; _kca'
 alias keti='kubectl exec -t -i'
 alias kpf='kubectl port-forward'
 alias kcp='kubectl cp'
-alias kdel="kubectl delete"
 alias kdelf="kubectl delete -f"
 
 # Configuration management
@@ -90,6 +92,7 @@ alias kgda='kubectl get deployment --all-namespaces'
 alias kgrs='kubectl get replicaset'
 alias kdrs='kubectl describe replicaset'
 alias kers='kubectl edit replicaset'
+alias kdelrs='kubectl delete replicaset'
 
 ### Nodes
 alias kgno='kubectl get nodes'
