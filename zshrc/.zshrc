@@ -23,3 +23,7 @@ export XDG_CONFIG_HOME="$HOME/.config/"
 source ~/.zshrc_aliases
 source ~/.zshrc_functions
 
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
