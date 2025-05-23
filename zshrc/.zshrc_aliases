@@ -1,9 +1,17 @@
 alias cls=clear
 alias python=python3
+alias matrix="cmatrix"
 alias cat="batcat --paging=never"
 alias c="xclip -selection clipboard"
 alias v="xclip -selection clipboard -o"
 alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z999XGKFNUDvppTaPzXjJGUCMI1bM9.1"'
+
+# Dirs
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 # General kubectl commands
 alias k='kubectl'
@@ -172,10 +180,3 @@ alias kru='kubectl rollout undo'
 alias kga='kubectl get all'
 alias kgan='kga -n'
 alias kgaa='kubectl get all --all-namespaces'
-
-# Dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
