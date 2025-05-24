@@ -7,23 +7,20 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$HOME/.oh-my-zsh"
+export EDITOR="code --wait"
+export LANG=en_US.UTF-8
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git aws terraform)
 
-source $ZSH/oh-my-zsh.sh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 DEFAULT_USER=erikg
+[[ ! -f $XDG_CONFIG_HOME/p10k/.p10k.zsh ]] || source $XDG_CONFIG_HOME/p10k/.p10k.zsh
 
-export EDITOR="code --wait"
-export LANG=en_US.UTF-8
-export XDG_CONFIG_HOME="$HOME/.config/"
-
-source ~/.zshrc_aliases
-source ~/.zshrc_functions
-
+source $ZSH/oh-my-zsh.sh
+source $XDG_CONFIG_HOME/zsh/.zshrc_aliases
+source $XDG_CONFIG_HOME/zsh/.zshrc_functions
 
 . "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
