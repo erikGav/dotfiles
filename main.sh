@@ -32,6 +32,8 @@ function run_script() {
 }
 
 function run_stow() {
+    [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
+
     echo "Running 'stow .' in $SCRIPT_DIR"
     (cd "$SCRIPT_DIR" && stow .)
 }
