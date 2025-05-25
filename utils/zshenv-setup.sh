@@ -17,12 +17,30 @@ ZSHENV_FILE="/etc/zsh/zshenv"
 
 # Check if snippet is already present in /etc/zsh/zshenv
 if ! grep -Fq 'export XDG_CONFIG_HOME="$HOME/.config/"' "$ZSHENV_FILE"; then
-    echo "Appending snippet to $ZSHENV_FILE"
-    # Use sudo tee to append if script is run as non-root
-    sudo bash -c "echo -e '\n$SNIPPET' >> $ZSHENV_FILE"
+    echo "Snippet not found in $ZSHENV_FILE, appending..."
+
+    # Test if writable without sudo
+    if [ -w "$ZSHENV_FILE" ]; then
+        # Direct append without sudo
+        cat >>"$ZSHENV_FILE" <<EOF
+
+$SNIPPET
+EOF
+        echo "Appended snippet without sudo."
+    else
+        # Try to append using sudo
+        if sudo -v; then
+            sudo bash -c "cat >> '$ZSHENV_FILE' <<'EOL'
+
+$SNIPPET
+EOL
+"
+            echo "Appended snippet using sudo."
+        else
+            echo "Cannot write to $ZSHENV_FILE and sudo access not available. Exiting."
+            exit 1
+        fi
+    fi
 else
     echo "Snippet already present in $ZSHENV_FILE, skipping append."
 fi
-
-# Run stow .
-stow .
