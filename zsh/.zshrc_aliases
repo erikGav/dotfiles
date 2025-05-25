@@ -11,7 +11,7 @@ alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z
 alias ls='eza --icons --git --all'
 alias ll='eza --icons --git --all --long'
 alias lt="eza --icons --git --long --tree --level=2"
-alias tree="eza --tree"
+alias tree="eza --tree --all"
 
 # Dirs
 alias ..="cd .."
