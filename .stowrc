@@ -2,5 +2,5 @@
 --ignore=.stowrc
 --ignore=DS_Store
 --ignore=fonts
---ignore=dash2panel
+--ignore=dast-to-panel
 --ignore=gnome-terminal
