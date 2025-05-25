@@ -4,3 +4,5 @@
 --ignore=fonts
 --ignore=dast-to-panel
 --ignore=gnome-terminal
+--ignore=packages.txt
+--ignore=import-all-dconf.sh

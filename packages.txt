@@ -1,0 +1,12 @@
+bat
+btop
+cmatrix
+eza
+neofetch
+stow
+xclip
+tmux
+jqp
+jq
+yh
+atuin

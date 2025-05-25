@@ -3,9 +3,11 @@ alias top=btop
 alias python=python3
 alias matrix="cmatrix"
 alias cat="batcat --paging=never"
+alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z999XGKFNUDvppTaPzXjJGUCMI1bM9.1"'
+
+# Copy and Paste
 alias c="xclip -selection clipboard"
 alias v="xclip -selection clipboard -o"
-alias zoom='xdg-open "zoommtg://zoom.us/join?action=join&confno=5259854597&pwd=Z999XGKFNUDvppTaPzXjJGUCMI1bM9.1"'
 
 # eza
 alias ls='eza --icons --git --all'
