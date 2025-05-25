@@ -2,6 +2,9 @@
 
 UTILS_DIR="./utils"
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+UTILS_DIR="$SCRIPT_DIR/utils"
+
 function run_all() {
     echo "Running all utility scripts in $UTILS_DIR"
     for script in "$UTILS_DIR"/*.sh; do
@@ -29,8 +32,8 @@ function run_script() {
 }
 
 function run_stow() {
-    echo "Running 'stow .'"
-    stow .
+    echo "Running 'stow .' in $SCRIPT_DIR"
+    (cd "$SCRIPT_DIR" && stow .)
 }
 
 function ask_stow() {
@@ -50,7 +53,7 @@ function ask_stow() {
     done
 }
 
-while true; do
+function print_menu() {
     echo
     echo "Choose an option:"
     echo "1) Run all utility scripts"
@@ -59,7 +62,7 @@ while true; do
     echo "4) Run 'stow .'"
     echo "5) Exit"
     read -rp "Enter choice [1-5]: " choice
-
+    echo
     case "$choice" in
     1)
         run_all && ask_stow
@@ -79,6 +82,10 @@ while true; do
         ;;
     *)
         echo "Invalid option. Please enter 1-5."
+        exit 1
         ;;
     esac
-done
+}
+
+print_menu
+exit 0
