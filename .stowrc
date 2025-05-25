@@ -2,7 +2,7 @@
 --ignore=.stowrc
 --ignore=DS_Store
 --ignore=fonts
---ignore=dast-to-panel
---ignore=gnome-terminal
+--ignore=dconf
+--ignore=utils
 --ignore=packages.txt
---ignore=import-all-dconf.sh
+--ignore=main.sh

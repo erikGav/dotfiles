@@ -3,10 +3,13 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DCONF_DIR="$SCRIPT_DIR/dconf"
+PARENT_DIR="$(dirname "$SCRIPT_DIR")"
+DCONF_DIR="$PARENT_DIR/dconf"
 
 for dconf_file in "$DCONF_DIR"/*.dconf; do
     [ -e "$dconf_file" ] || continue
+
+    echo "Processing $dconf_file"
 
     # Extract the first non-empty, non-comment line that starts with #
     schema=$(grep -m1 '^# *\/' "$dconf_file" | sed 's/^# *//')
