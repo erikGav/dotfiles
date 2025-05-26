@@ -19,28 +19,31 @@ ZSHENV_FILE="/etc/zsh/zshenv"
 if ! grep -Fq 'export XDG_CONFIG_HOME="$HOME/.config/"' "$ZSHENV_FILE"; then
     echo "Snippet not found in $ZSHENV_FILE, appending..."
 
-    # Test if writable without sudo
     if [ -w "$ZSHENV_FILE" ]; then
-        # Direct append without sudo
+        # Append directly
         cat >>"$ZSHENV_FILE" <<EOF
 
 $SNIPPET
 EOF
         echo "Appended snippet without sudo."
-    else
-        # Try to append using sudo
-        if sudo; then
-            sudo bash -c "cat >> '$ZSHENV_FILE' <<'EOL'
+
+    elif sudo test -w "$ZSHENV_FILE"; then
+        # Append using sudo
+        sudo bash -c "cat >> '$ZSHENV_FILE' <<'EOL'
 
 $SNIPPET
 EOL
 "
-            echo "Appended snippet using sudo."
-        else
-            echo "Cannot write to $ZSHENV_FILE and sudo access not available. Exiting."
-            exit 1
-        fi
+        echo "Appended snippet using sudo."
+
+    else
+        echo "Cannot write to $ZSHENV_FILE, and sudo is not permitted. Exiting."
+        exit 1
     fi
 else
     echo "Snippet already present in $ZSHENV_FILE, skipping append."
 fi
+
+# Run stow from script's directory
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+(cd "$SCRIPT_DIR" && stow .)
