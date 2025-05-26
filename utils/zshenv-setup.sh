@@ -29,7 +29,7 @@ EOF
         echo "Appended snippet without sudo."
     else
         # Try to append using sudo
-        if sudo -v; then
+        if sudo; then
             sudo bash -c "cat >> '$ZSHENV_FILE' <<'EOL'
 
 $SNIPPET

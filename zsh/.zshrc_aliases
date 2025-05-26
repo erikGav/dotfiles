@@ -14,7 +14,7 @@ alias v="xclip -selection clipboard -o"
 alias ls='eza --icons --git --all'
 alias ll='eza --icons --git --all --long'
 alias lt="eza --icons --git --long --tree --level=2"
-alias tree="eza --tree --all"
+alias tree="eza --tree"
 
 # Dirs
 alias ..="cd .."
