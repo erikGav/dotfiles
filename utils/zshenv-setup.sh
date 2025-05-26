@@ -43,7 +43,3 @@ EOL
 else
     echo "Snippet already present in $ZSHENV_FILE, skipping append."
 fi
-
-# Run stow from script's directory
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-(cd "$SCRIPT_DIR" && stow .)
