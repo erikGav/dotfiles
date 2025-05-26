@@ -54,3 +54,7 @@ k8s_nuke() {
         kubectl delete namespace "$namespace"
     fi
 }
+
+chpwd() {
+    ls
+}
