@@ -16,13 +16,6 @@ alias ll='eza --icons --git --all --long'
 alias lt="eza --icons --git --long --tree --level=2"
 alias tree="eza --tree"
 
-# Dirs
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-
 # General kubectl commands
 alias k='kubectl'
 alias kg='kubectl get'

@@ -13,7 +13,7 @@ export EDITOR="code --wait"
 export LANG=en_US.UTF-8
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git aws terraform)
+plugins=(git aws docker terraform)
 
 DEFAULT_USER=erikg
 [[ ! -f $XDG_CONFIG_HOME/p10k/.p10k.zsh ]] || source $XDG_CONFIG_HOME/p10k/.p10k.zsh
