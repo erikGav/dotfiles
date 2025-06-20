@@ -18,9 +18,11 @@ plugins=(git aws docker terraform)
 DEFAULT_USER=erikg
 [[ ! -f $XDG_CONFIG_HOME/p10k/.p10k.zsh ]] || source $XDG_CONFIG_HOME/p10k/.p10k.zsh
 
+
 source $ZSH/oh-my-zsh.sh
 source $XDG_CONFIG_HOME/zsh/.zshrc_aliases
 source $XDG_CONFIG_HOME/zsh/.zshrc_functions
+source $XDG_CONFIG_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
