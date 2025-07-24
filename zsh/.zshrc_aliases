@@ -1,3 +1,4 @@
+alias oo='gio open .'
 alias cls=clear
 alias top=btop
 alias python=python3
