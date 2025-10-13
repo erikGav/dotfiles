@@ -1,3 +1,4 @@
+alias vi=vim
 alias oo='gio open .'
 alias cls=clear
 alias top=btop
