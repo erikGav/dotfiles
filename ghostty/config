@@ -1,0 +1,54 @@
+quit-after-last-window-closed = true
+quit-after-last-window-closed-delay = 5m
+
+gtk-single-instance = true
+
+# Font configuration
+font-family = MesloLGSDZ Nerd Font
+font-size = 16
+
+# Window size
+window-height = 28
+window-width = 115
+
+# Colors
+background = 000000
+foreground = ffffff
+
+# Color palette (converted from your GNOME Terminal palette)
+palette = 0=413272
+palette = 1=ff0013
+palette = 2=00fe1d
+palette = 3=fce674
+palette = 4=12488b
+palette = 5=a347ba
+palette = 6=2aa1b3
+palette = 7=ffffff
+palette = 8=5e5c64
+palette = 9=f66151
+palette = 10=33d17a
+palette = 11=e9ad0c
+palette = 12=2a7bde
+palette = 13=c061cb
+palette = 14=33c7de
+palette = 15=ffffff
+
+# Cursor configuration
+cursor-style = block
+cursor-style-blink = true
+
+# Other settings that match your GNOME Terminal config
+bold-is-bright = false
+
+keybind = super+shift+d=new_split:right
+keybind = super+shift+a=new_split:left
+keybind = super+shift+w=new_split:up
+keybind = super+shift+s=new_split:down
+
+keybind = super+shift+h=goto_split:left 
+keybind = super+shift+l=goto_split:right 
+keybind = super+shift+j=goto_split:top 
+keybind = super+shift+k=goto_split:bottom
+
+confirm-close-surface=false
+
