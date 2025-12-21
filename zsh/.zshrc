@@ -12,6 +12,12 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="code --wait"
 export LANG=en_US.UTF-8
 
+if grep -qi microsoft /proc/version 2>/dev/null; then
+  export BROWSER="wslview:xdg-open"
+else
+  export BROWSER="brave-browser"
+fi
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git aws docker terraform)
 
