@@ -1,6 +1,6 @@
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-complete -C '/snap/aws-cli/current/bin/aws_completer' aws
+complete -C './usr/loca/bin/aws_completer' aws
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
