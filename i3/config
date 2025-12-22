@@ -42,10 +42,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Load GNOME XSettings daemon so GTK apps follow GNOME theme settings
-exec --no-startup-id /usr/libexec/gsd-xsettings
-
-# Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -107,6 +103,11 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# Load GNOME XSettings daemon so GTK apps follow GNOME theme settings
+exec --no-startup-id /usr/libexec/gsd-xsettings
+
+exec --no-startup-id gammastep
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: "
@@ -153,6 +154,9 @@ assign [class="mpv"] $ws9
 exec brave-browser
 exec code
 exec slack
+
+# toggle gammastep on/off
+bindsym $mod+End exec --no-startup-id ~/dotfiles/utils/toggle-nightlight.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
