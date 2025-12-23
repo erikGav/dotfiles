@@ -140,7 +140,7 @@ client.placeholder      #6d5746 #1b1c27    #af8360
 hide_edge_borders both
 
 bar {
-        font pango: MesloLGS NF, Font Awesome 7 Free, Font Awesome 7 Brands 11
+        font pango: DejaVu Sans Condensed ,Font Awesome 7 Free, Font Awesome 7 Brands 12
 
         status_command i3status
         colors {
