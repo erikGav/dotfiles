@@ -1,9 +1,9 @@
 #!/bin/bash
 
-UTILS_DIR="./utils"
-
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 UTILS_DIR="$SCRIPT_DIR/utils"
+DOTFILES_DIR="$SCRIPT_DIR/config"
+HOME_DIR="$SCRIPT_DIR/home"
 
 function run_all() {
     echo "Running all utility scripts in $UTILS_DIR"
@@ -31,11 +31,29 @@ function run_script() {
     fi
 }
 
+# function run_stow() {
+#     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
+
+#     echo "Running 'stow .' in $SCRIPT_DIR"
+#     (cd "$SCRIPT_DIR" && stow .)
+# }
+
 function run_stow() {
     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
 
-    echo "Running 'stow .' in $SCRIPT_DIR"
-    (cd "$SCRIPT_DIR" && stow .)
+    echo "Running stow for config files..."
+    (cd "$DOTFILES_DIR" && stow .) || {
+        echo "Error stowing config"
+        return 1
+    }
+    
+    echo "Running stow for home files..."
+    (cd "$HOME_DIR" && stow .) || {
+        echo "Error stowing home"
+        return 1
+    }
+    
+    echo "Stow completed successfully!"
 }
 
 function ask_stow() {

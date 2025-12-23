@@ -12,4 +12,5 @@ yh
 atuin
 gammastep
 i3
+i3blocks
 lxappearance

@@ -1,4 +1,5 @@
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec_always --no-startup-id export GTK_THEME=Material-Black-Mango
 
 set $mod Mod4
 
@@ -147,18 +148,11 @@ bar {
             background #1b1c27   # dark main background
             statusline #ebb677   # light gold for text
             separator  #af8360
-
-            # focused workspace (deep red/brown like rofi selected)
-            focused_workspace  #783d38 #783d38 #ebb677
-
-            # workspace with windows but not focused (high contrast)
-            active_workspace   #cea275 #6d5746 #1b1c27
-
-            # empty/inactive workspace
-            inactive_workspace #52453c #1b1c27 #cea275
-
-            # urgent workspace
-            urgent_workspace   #783d38 #ebb677 #1b1c27
+            #                  border     background  text
+            focused_workspace  #783d38    #783d38     #ebb677
+            active_workspace   #cea275    #6d5746     #1b1c27
+            inactive_workspace #52453c    #1b1c27     #cea275
+            urgent_workspace   #783d38    #ebb677     #1b1c27
     }
 }
 
@@ -166,7 +160,6 @@ set $filemanager thunar
 
 bindsym $mod+e exec --no-startup-id $filemanager
 bindsym $mod+End exec --no-startup-id ~/dotfiles/utils/toggle-nightlight.sh
-
 bindsym $mod+Shift+e exec --no-startup-id ~/dotfiles/utils/powermenu.sh
 
 # bindsym $mod+Shift+e exec --no-startup-id sh -c 'i3-nagbar -t warning -m "Power menu" \
@@ -188,10 +181,10 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9: "
 set $ws10 "10"
-bindsym $mod+2 workspace $ws2
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1 
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
@@ -227,5 +220,3 @@ for_window [class="mpv"] focus
 exec brave-browser
 exec code
 exec slack
-
-
