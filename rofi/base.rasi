@@ -1,0 +1,29 @@
+* {
+    background-color: transparent;
+    text-color: #ebb677;
+    font: "MesloLGLDZ Nerd Font 12";
+}
+
+window {
+    background-color: #1b1c27;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+listview {
+    background-color: transparent;
+    spacing: 10px;
+}
+
+element {
+    background-color: #52453c;
+    text-color: #ebb677;
+    border-radius: 5px;
+}
+
+element selected {
+    background-color: #783d37;
+    text-color: #ebb677;
+}

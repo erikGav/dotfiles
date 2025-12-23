@@ -1,11 +1,11 @@
-* {
-    background-color: transparent;
-    text-color: #ebb677;
-    font: "MesloLGLDZ Nerd Font 10";
+@import "base"
+
+configuration {
+    show-icons: true;
+    icon-theme: "Material-Black-Mango-Suru";
 }
 
 window {
-    background-color: #1b1c27;
     border: 2px solid;
     border-color: #af8360;
     border-radius: 5px;
@@ -13,13 +13,8 @@ window {
     padding: 10px;
 }
 
-mainbox {
-    background-color: transparent;
-}
-
 inputbar {
     background-color: #52453c;
-    text-color: #ebb677;
     padding: 10px;
     border-radius: 5px;
     margin: 0px 0px 10px 0px;
@@ -31,24 +26,11 @@ prompt {
     padding: 0px 10px 0px 0px;
 }
 
-entry {
-    text-color: #ebb677;
-}
-
 listview {
-    background-color: transparent;
     spacing: 5px;
     lines: 8;
 }
 
 element {
-    background-color: #52453c;
-    text-color: #ebb677;
     padding: 8px;
-    border-radius: 3px;
-}
-
-element selected {
-    background-color: #783d37;
-    text-color: #ebb677;
 }

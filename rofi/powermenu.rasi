@@ -1,18 +1,8 @@
-@import "config.rasi"
-
-* {
-    background-color: transparent;
-    text-color: #ebb677;
-}
+@import "base"
 
 window {
     fullscreen: true;
-    background-color: #1b1c27;
-    padding: 30% 35%;
-}
-
-mainbox {
-    background-color: transparent;
+    padding: 35% 40%;
 }
 
 inputbar {
@@ -20,19 +10,14 @@ inputbar {
 }
 
 listview {
-    background-color: transparent;
-    spacing: 10px;
     lines: 5;
 }
 
 element {
-    background-color: #52453c;
-    text-color: #ebb677;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 15px 30px;
 }
 
-element selected {
-    background-color: #6d5746;
-    text-color: #cea275;
+element-text {
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
 }
