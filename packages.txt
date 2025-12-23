@@ -10,3 +10,6 @@ jqp
 jq
 yh
 atuin
+gammastep
+i3
+lxappearance
