@@ -1,7 +1,6 @@
 * {
     background-color: transparent;
     text-color: #ebb677;
-    font: "MesloLGLDZ Nerd Font 12";
 }
 
 window {
