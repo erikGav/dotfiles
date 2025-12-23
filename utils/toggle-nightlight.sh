@@ -16,7 +16,6 @@ if is_gnome; then
 else
     SESSION="i3"
     if pgrep -x gammastep >/dev/null; then
-        gammastep -x
         pkill gammastep
         notify-send -t 1300 "Night Light ($SESSION)" "Night Light turned OFF"
     else
