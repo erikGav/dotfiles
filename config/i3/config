@@ -1,5 +1,4 @@
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
-exec_always --no-startup-id export GTK_THEME=Material-Black-Mango
 
 set $mod Mod4
 
@@ -180,7 +179,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9: "
-set $ws10 "10"
+set $ws10 "10: "
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -194,6 +193,9 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -206,17 +208,21 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpeg
-exec --no-startup-id gammastep
-exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
 
-assign [class="Brave-browser"] $ws1
+assign [class="Brave-browser" window_role="browser"] $ws1
+assign [class="Brave-browser" title="Spotify"] $ws10
 assign [class="Code"] $ws3
 assign [class="Slack"] $ws4
 assign [class="mpv"] $ws9
 
-for_window [class="mpv"] focus
+exec_always feh --bg-scale ~/Pictures/wallpaper.jpeg
+exec --no-startup-id gammastep
+exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
+exec_always --no-startup-id setxkbmap -layout us,il,ru -option grp:win_space_toggle
 
+exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'
 exec brave-browser
 exec code
 exec slack
+
+for_window [class="mpv"] focus
