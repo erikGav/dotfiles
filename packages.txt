@@ -5,7 +5,6 @@ eza
 neofetch
 stow
 xclip
-tmux
 jqp
 jq
 yh
