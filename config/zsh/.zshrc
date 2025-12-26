@@ -11,6 +11,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="code --wait"
 export GTK_THEME="Material-Black-Mango"
+export GPG_TTY=$TTY
 export LANG=en_US.UTF-8
 
 if grep -qi microsoft /proc/version 2>/dev/null; then
@@ -42,4 +43,3 @@ if [ -s "$NVM_DIR/bash_completion" ]; then
   . "$NVM_DIR/bash_completion"
 fi
 true  # Force success status
-
