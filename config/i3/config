@@ -99,7 +99,7 @@ set $ws4 "4: "
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
+set $ws8 "8: "
 set $ws9 "9: "
 set $ws10 "10: "
 
@@ -131,11 +131,12 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Shift+l exec --no-startup-id ~/dotfiles/utils/toggle-i3lock.sh
 
 assign [class="Brave-browser" window_role="browser"] $ws1
-assign [class="Brave-browser" title="Spotify"] $ws10
 assign [class="Code"] $ws3
 assign [class="Slack"] $ws4
+assign [class="PPSSPPSDL"] $ws8
 assign [class="mpv"] $ws9
 assign [class="Stremio"] $ws9
+assign [class="Brave-browser" title="Spotify"] $ws10
 
 exec_always feh --bg-scale ~/Pictures/wallpaper.jpeg
 exec --no-startup-id gammastep
@@ -149,3 +150,4 @@ exec slack
 
 for_window [class="mpv"] focus
 for_window [class="Stremio"] focus
+for_window [class="PPSSPPSDL"] focus, fullscreen enable
