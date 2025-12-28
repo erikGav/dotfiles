@@ -87,7 +87,7 @@ set $filemanager thunar
 
 bindsym $mod+e       exec --no-startup-id $filemanager
 bindsym $mod+d       exec --no-startup-id rofi -show run
-bindsym $mod+b       exec --no-startup-id ~/dotfiles/utils/browser.sh
+bindsym $mod+s       exec --no-startup-id ~/dotfiles/utils/browser.sh
 bindsym $mod+End     exec --no-startup-id ~/dotfiles/utils/toggle-nightlight.sh
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+e exec --no-startup-id ~/dotfiles/utils/powermenu.sh
