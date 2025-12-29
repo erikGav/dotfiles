@@ -69,17 +69,17 @@ client.placeholder      #6d5746 #1b1c27    #af8360
 hide_edge_borders both
 
 bar {
-        font pango: DejaVu Sans Condensed ,Font Awesome 7 Free, Font Awesome 7 Brands 12
-
-        status_command i3blocks
-        colors {
-            background #1b1c27
-            statusline #ebb677
-            separator  #af8360
-            focused_workspace  #783d38    #783d38     #ebb677
-            active_workspace   #cea275    #6d5746     #1b1c27
-            inactive_workspace #52453c    #1b1c27     #cea275
-            urgent_workspace   #783d38    #ebb677     #1b1c27
+    font pango: DejaVu Sans Condensed ,Font Awesome 7 Free, Font Awesome 7 Brands 12
+    
+    status_command i3blocks
+    colors {
+        background #1b1c27
+        statusline #ebb677
+        separator  #af8360
+        focused_workspace  #783d38    #783d38     #ebb677
+        active_workspace   #cea275    #6d5746     #1b1c27
+        inactive_workspace #52453c    #1b1c27     #cea275
+        urgent_workspace   #783d38    #ebb677     #1b1c27
     }
 }
 
@@ -89,6 +89,7 @@ bindsym $mod+e       exec --no-startup-id $filemanager
 bindsym $mod+d       exec --no-startup-id rofi -show run
 bindsym $mod+s       exec --no-startup-id ~/dotfiles/utils/browser.sh
 bindsym $mod+End     exec --no-startup-id ~/dotfiles/utils/toggle-nightlight.sh
+bindsym $mod+Tab     exec --no-startup-id rofi -show window -window-sort-method workspace -window-format "{w}: {c} {t}"
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+e exec --no-startup-id ~/dotfiles/utils/powermenu.sh
 bindsym $mod+Shift+l exec --no-startup-id ~/dotfiles/utils/toggle-i3lock.sh
