@@ -5,16 +5,16 @@ UTILS_DIR="$SCRIPT_DIR/utils"
 DOTFILES_DIR="$SCRIPT_DIR/config"
 HOME_DIR="$SCRIPT_DIR/home"
 
-function run_all() {
-    echo "Running all utility scripts in $UTILS_DIR"
-    for script in "$UTILS_DIR"/*.sh; do
-        echo "Running $(basename "$script")..."
-        bash "$script" || {
-            echo "Error running $script"
-            return 1
-        }
-    done
-}
+# function run_all() {
+#     echo "Running all utility scripts in $UTILS_DIR"
+#     for script in "$UTILS_DIR"/*.sh; do
+#         echo "Running $(basename "$script")..."
+#         bash "$script" || {
+#             echo "Error running $script"
+#             return 1
+#         }
+#     done
+# }
 
 function run_script() {
     local name=$1
@@ -30,13 +30,6 @@ function run_script() {
         return 1
     fi
 }
-
-# function run_stow() {
-#     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
-
-#     echo "Running 'stow .' in $SCRIPT_DIR"
-#     (cd "$SCRIPT_DIR" && stow .)
-# }
 
 function run_stow() {
     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
@@ -76,27 +69,19 @@ function ask_stow() {
 function print_menu() {
     echo
     echo "Choose an option:"
-    echo "1) Run all utility scripts"
+    echo "1) Run 'stow .'"
     echo "2) Run zshenv-setup script"
-    echo "3) Run import-all-dconf script"
-    echo "4) Run 'stow .'"
-    echo "5) Exit"
-    read -rp "Enter choice [1-5]: " choice
+    echo "3) Exit"
+    read -rp "Enter choice [1-4]: " choice
     echo
     case "$choice" in
     1)
-        run_all && ask_stow
+        run_stow
         ;;
     2)
         run_script "zshenv-setup" && ask_stow
         ;;
     3)
-        run_script "import-all-dconf"
-        ;;
-    4)
-        run_stow
-        ;;
-    5)
         echo "Goodbye!"
         exit 0
         ;;
