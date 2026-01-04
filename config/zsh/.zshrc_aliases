@@ -8,13 +8,20 @@ alias cat="batcat --paging=never"
 alias catp="batcat --style=plain --paging=never"
 
 # Copy
-c() {
-  if grep -qi microsoft /proc/sys/kernel/osrelease; then
-    clip.exe
-  else
-    xclip -selection clipboard
-  fi
-}
+#c() {
+#  if grep -qi microsoft /proc/sys/kernel/osrelease; then
+#    clip.exe
+#  else
+#    xclip -selection clipboard
+#  fi
+#}
+
+if grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null; then
+  alias c="clip.exe"
+  alias aws_login="aws sso login --sso-session gov.il --use-device-code"
+else
+  alias c="xclip -selection clipboard"
+fi
 
 # eza
 alias ls='eza --icons --git --all'
