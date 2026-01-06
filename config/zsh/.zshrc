@@ -21,7 +21,7 @@ else
 fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git aws docker terraform)
+plugins=(git aws docker terraform kubectl)
 
 DEFAULT_USER=erikg
 [[ ! -f $XDG_CONFIG_HOME/p10k/.p10k.zsh ]] || source $XDG_CONFIG_HOME/p10k/.p10k.zsh
