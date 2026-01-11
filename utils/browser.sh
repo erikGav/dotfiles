@@ -6,6 +6,7 @@ declare -A sites=(
     [" Google"]="https://www.google.com"
     [" YouTube"]="https://www.youtube.com"
     ["󰃭 Calendar"]="https://calendar.google.com"
+    [" Maps"]="https://www.google.com/maps"
 )
 
 options=$(printf "%s\n" "${!sites[@]}")
