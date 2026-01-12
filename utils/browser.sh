@@ -19,6 +19,8 @@ choice=$(echo -e "$options" | rofi -dmenu -i \
 # Check if choice matches any site
 if [[ -v sites["$choice"] ]]; then
     exec $BROWSER "${sites[$choice]}"
+elif [[ "$choice" =~ ^[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(/.*)?$ ]]; then
+    exec $BROWSER "https://$choice"
 else
     # No match - treat as search query
     query=$(printf '%s' "$choice" | sed 's/ /+/g')
