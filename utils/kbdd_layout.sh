@@ -43,8 +43,8 @@ while [[ -z "$N" ]]; do
 done
 dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
   /ru/gentoo/KbddService ru.gentoo.kbdd.getLayoutName uint32:"$N" |\
-  grep -Po "${MATCH}" | head -n1 | tr '[:lower:]' '[:upper:]'
+  grep -Po "${MATCH}" | head -n1
 
 # Parse dbus output.
 dbus-monitor "interface='ru.gentoo.kbdd',member='layoutNameChanged'" |\
-  grep -Po --line-buffered "(?<=string \")${MATCH}" | tr '[:lower:]' '[:upper:]'
+  grep -Po --line-buffered "(?<=string \")${MATCH}"
