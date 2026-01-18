@@ -143,6 +143,7 @@ assign [class="Brave-browser" title="Spotify"]       $ws10
 
 exec --no-startup-id gammastep
 exec --no-startup-id ~/dotfiles/utils/slack-work-hours.sh
+exec --no-startup-id ibus-daemon -drx --panel=/bin/false
 # exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
 
 exec_always --no-startup-id "sleep 3 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
