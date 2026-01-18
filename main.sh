@@ -5,17 +5,6 @@ UTILS_DIR="$SCRIPT_DIR/utils"
 DOTFILES_DIR="$SCRIPT_DIR/config"
 HOME_DIR="$SCRIPT_DIR/home"
 
-# function run_all() {
-#     echo "Running all utility scripts in $UTILS_DIR"
-#     for script in "$UTILS_DIR"/*.sh; do
-#         echo "Running $(basename "$script")..."
-#         bash "$script" || {
-#             echo "Error running $script"
-#             return 1
-#         }
-#     done
-# }
-
 function run_script() {
     local name=$1
     local script="$UTILS_DIR/$name.sh"
