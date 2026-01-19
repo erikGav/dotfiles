@@ -1,9 +1,4 @@
 
-
-#command=$SCRIPT_DIR/$BLOCK_NAME
-#separator_block_width=15
-#markup=none
-
 [kbdd_layout]
 command=~/dotfiles/utils/kbdd_layout.sh
 interval=persist
@@ -12,7 +7,6 @@ color=#00BFFF
 [calendar]
 command=~/dotfiles/utils/calendar.sh
 interval=1
-#LABEL= 
-DATEFMT=+%d/%m/%Y %H:%M
+DATEFMT=+%a %d/%m/%Y %H:%M
 HEIGHT=220
 WIDTH=300

@@ -5,11 +5,20 @@ BROWSER="brave-browser"
 declare -A sites=(
     [" Google"]="https://www.google.com"
     [" YouTube"]="https://www.youtube.com"
-    ["󰃭 Calendar"]="https://calendar.google.com"
+    ["󰃭 Calendar@develeap"]="https://calendar.google.com/calendar/u/4/r"
+    ["󰃭 Calendar@work"]="https://calendar.google.com/calendar/u/0/r"
     [" Maps"]="https://www.google.com/maps"
 )
 
-options=$(printf "%s\n" "${!sites[@]}")
+order=(
+    " Google"
+    " YouTube"
+    " Maps"
+    "󰃭 Calendar@develeap"
+    "󰃭 Calendar@work"
+)
+
+options=$(printf "%s\n" "${order[@]}")
 
 choice=$(echo -e "$options" | rofi -dmenu -i \
   -p "Search or open site")
