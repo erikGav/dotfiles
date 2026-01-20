@@ -147,7 +147,7 @@ exec --no-startup-id ~/dotfiles/utils/slack-work-hours.sh
 
 exec_always --no-startup-id "sleep 3 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
 exec_always --no-startup-id ibus-daemon -drx --panel=/bin/false
-exec_always feh --bg-scale ~/Pictures/wallpaper.jpeg
+exec_always feh --bg-scale ~/dotfiles/utils/wallpaper.jpeg
 
 
 exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'
