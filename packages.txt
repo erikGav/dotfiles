@@ -3,6 +3,7 @@ https://github.com/noahgorstein/jqp
 https://github.com/jqlang/jq
 https://github.com/mikefarah/yq
 -------------------
+zsh
 autoconf
 xdotool
 yad

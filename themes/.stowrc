@@ -1,0 +1,4 @@
+--target=/usr/share/themes
+--ignore=.stowrc
+--ignore=DS_Store
+

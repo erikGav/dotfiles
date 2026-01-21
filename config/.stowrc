@@ -1,7 +1,3 @@
 --target=~/.config
 --ignore=.stowrc
 --ignore=DS_Store
---ignore=dconf
---ignore=utils
---ignore=packages.txt
---ignore=main.sh

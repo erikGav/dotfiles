@@ -1,0 +1,4 @@
+--target=/usr/share/icons
+--ignore=.stowrc
+--ignore=DS_Store
+

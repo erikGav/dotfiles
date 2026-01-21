@@ -2,8 +2,9 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 UTILS_DIR="$SCRIPT_DIR/utils"
-DOTFILES_DIR="$SCRIPT_DIR/config"
-HOME_DIR="$SCRIPT_DIR/home"
+
+# Just add directory names here - no need for additional constants
+STOW_DIRS=("config" "home" "themes" "icons")
 
 function run_script() {
     local name=$1
@@ -23,18 +24,21 @@ function run_script() {
 function run_stow() {
     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
 
-    echo "Running stow for config files..."
-    (cd "$DOTFILES_DIR" && stow .) || {
-        echo "Error stowing config"
-        return 1
-    }
-    
-    echo "Running stow for home files..."
-    (cd "$HOME_DIR" && stow .) || {
-        echo "Error stowing home"
-        return 1
-    }
-    
+    for dir_name in "${STOW_DIRS[@]}"; do
+        local dir_path="$SCRIPT_DIR/$dir_name"
+
+        if [[ ! -d "$dir_path" ]]; then
+            echo "Warning: Directory $dir_name not found, skipping..."
+            continue
+        fi
+
+        echo "Running stow for $dir_name files..."
+        (cd "$dir_path" && sudo stow .) || {
+            echo "Error stowing $dir_name"
+            return 1
+        }
+    done
+
     echo "Stow completed successfully!"
 }
 
@@ -61,7 +65,7 @@ function print_menu() {
     echo "1) Run 'stow .'"
     echo "2) Run zshenv-setup script"
     echo "3) Exit"
-    read -rp "Enter choice [1-4]: " choice
+    read -rp "Enter choice [1-3]: " choice
     echo
     case "$choice" in
     1)
@@ -75,7 +79,7 @@ function print_menu() {
         exit 0
         ;;
     *)
-        echo "Invalid option. Please enter 1-5."
+        echo "Invalid option. Please enter 1-3."
         exit 1
         ;;
     esac
