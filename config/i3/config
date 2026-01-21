@@ -5,7 +5,7 @@ set $mod Mod4
 font pango:MesloLGS NF 10
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/dotfiles/utils/locked.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/dotfiles/scripts/locked.png
 exec --no-startup-id nm-applet
 
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -19,7 +19,7 @@ tiling_drag modifier titlebar
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Return  exec i3-sensible-terminal
-bindsym $mod+l       exec i3lock -i ~/dotfiles/utils/locked.png
+bindsym $mod+l       exec i3lock -i ~/dotfiles/scripts/locked.png
 
 bindsym $mod+Up    focus up
 bindsym $mod+Down  focus down
@@ -88,12 +88,12 @@ set $filemanager thunar
 
 bindsym $mod+e       exec --no-startup-id $filemanager
 bindsym $mod+d       exec --no-startup-id rofi -show run
-bindsym $mod+s       exec --no-startup-id ~/dotfiles/utils/browser.sh
-bindsym $mod+End     exec --no-startup-id ~/dotfiles/utils/toggle-nightlight.sh
+bindsym $mod+s       exec --no-startup-id ~/dotfiles/scripts/rofi/browser.sh
+bindsym $mod+End     exec --no-startup-id ~/dotfiles/scripts/i3/toggle-nightlight.sh
 bindsym $mod+Tab     exec --no-startup-id rofi -show window -window-sort-method workspace -window-format "{w}: {c} {t}"
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+e exec --no-startup-id ~/dotfiles/utils/powermenu.sh
-bindsym $mod+Shift+l exec --no-startup-id ~/dotfiles/utils/toggle-i3lock.sh
+bindsym $mod+Shift+e exec --no-startup-id ~/dotfiles/scripts/rofi/powermenu.sh
+bindsym $mod+Shift+l exec --no-startup-id ~/dotfiles/scripts/i3/toggle-i3lock.sh
 
 set $ws1  "1: "
 set $ws2  "2: "
@@ -142,12 +142,12 @@ assign [class="Stremio"]                             $ws9
 assign [class="Brave-browser" title="Spotify"]       $ws10
 
 exec --no-startup-id gammastep
-exec --no-startup-id ~/dotfiles/utils/slack-work-hours.sh
+exec --no-startup-id ~/dotfiles/scripts/i3/slack-work-hours.sh
 # exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
 
 exec_always --no-startup-id "sleep 3 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
 exec_always --no-startup-id ibus-daemon -drx --panel=/bin/false
-exec_always feh --bg-scale ~/dotfiles/utils/wallpaper.jpeg
+exec_always feh --bg-scale ~/dotfiles/scripts/wallpaper.jpeg
 
 
 exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'

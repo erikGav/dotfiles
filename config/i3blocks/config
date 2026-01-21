@@ -1,4 +1,4 @@
-SCRIPTS_DIR=/home/erikg/dotfiles/utils
+SCRIPTS_DIR=/home/erikg/dotfiles/scripts/i3blocks
 
 [iface]
 command=$SCRIPTS_DIR/iface.sh

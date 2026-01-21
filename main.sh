@@ -1,14 +1,14 @@
 #!/bin/bash
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-UTILS_DIR="$SCRIPT_DIR/utils"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+SCRIPTS_DIR="$DOTFILES_DIR/scripts"
 
 # Just add directory names here - no need for additional constants
 STOW_DIRS=("config" "home" "themes" "icons")
 
 function run_script() {
     local name=$1
-    local script="$UTILS_DIR/$name.sh"
+    local script="$SCRIPTS_DIR/misc/$name.sh"
     if [[ -f "$script" ]]; then
         echo "Running $name script..."
         bash "$script" || {
@@ -25,7 +25,7 @@ function run_stow() {
     [[ ! -d "$HOME/.config" ]] && mkdir -p ~/.config
 
     for dir_name in "${STOW_DIRS[@]}"; do
-        local dir_path="$SCRIPT_DIR/$dir_name"
+        local dir_path="$DOTFILES_DIR/$dir_name"
 
         if [[ ! -d "$dir_path" ]]; then
             echo "Warning: Directory $dir_name not found, skipping..."
