@@ -1,5 +1,8 @@
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 144.00
+exec --no-startup-id ibus-daemon -drx --panel=/bin/false
+
+
 set $mod Mod4
 
 font pango:MesloLGS NF 10
@@ -117,6 +120,9 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+bindsym $mod+Ctrl+Left  workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -128,9 +134,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-bindsym $mod+Ctrl+Left  workspace prev
-bindsym $mod+Ctrl+Right workspace next
-
 assign [class="Brave-browser" window_role="browser"] $ws1
 assign [class="Code"]                                $ws2
 assign [class="discord"]                             $ws3
@@ -141,17 +144,17 @@ assign [class="mpv"]                                 $ws9
 assign [class="Stremio"]                             $ws9
 assign [class="Brave-browser" title="Spotify"]       $ws10
 
+exec brave-browser
+
 exec --no-startup-id gammastep
 exec --no-startup-id ~/dotfiles/scripts/i3/slack-work-hours.sh
 # exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
 
 exec_always --no-startup-id "sleep 3 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
-exec_always --no-startup-id ibus-daemon -drx --panel=/bin/false
 exec_always feh --bg-scale ~/dotfiles/scripts/wallpaper.jpeg
 
 
-exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'
-exec brave-browser
+# exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'
 
 for_window [class="mpv"]                 focus
 for_window [class="Stremio"]             focus
