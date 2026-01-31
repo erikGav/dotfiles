@@ -1,6 +1,6 @@
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id xrandr --output DP-0 --mode 3440x1440 --rate 144.00
-exec --no-startup-id ibus-daemon -drx --panel=/bin/false
+exec --no-startup-id "sleep 5 && ibus-daemon -drx --panel=/bin/false"
 
 
 set $mod Mod4
@@ -150,6 +150,7 @@ exec --no-startup-id gammastep
 exec --no-startup-id ~/dotfiles/scripts/i3/slack-work-hours.sh
 # exec --no-startup-id i3-msg "workspace $ws2; exec ghostty; workspace $ws1"
 
+exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id "sleep 3 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
 exec_always feh --bg-scale ~/dotfiles/scripts/wallpaper.jpeg
 
