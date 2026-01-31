@@ -8,13 +8,13 @@ display_wifi_name=1
 
 [cpu_usage]
 command=$SCRIPTS_DIR/cpu_usage.pl
-interval=10
+interval=5
 LABEL= 
 
 [memory]
 command=$SCRIPTS_DIR/memory.sh
 label= 
-interval=10
+interval=5
 PERCENT=false
 
 [calendar]
