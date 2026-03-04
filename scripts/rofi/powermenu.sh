@@ -2,7 +2,7 @@
 
 options=" Lock\n Logout\n Suspend\n Reboot\n Shutdown"
 
-choice=$(echo -e "$options" | rofi -dmenu -theme ~/.config/rofi/powermenu.rasi -p "Power")
+choice=$(echo -e "$options" | rofi -dmenu -i -theme ~/.config/rofi/powermenu.rasi -p "Power")
 
 case "$choice" in
   *Lock) i3lock -c 000000 ;;
