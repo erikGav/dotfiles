@@ -4,7 +4,7 @@ FILEMANAGER="thunar"
 current="$HOME"
 
 while true; do
-    list=". (open here)"
+    list=". (open here)\n. (open terminal here)"
     [[ "$current" != "/" ]] && list="$list\n.."
     entries=$(ls -1 --group-directories-first "$current" 2>/dev/null)
     [[ -n "$entries" ]] && list="$list\n$entries"
@@ -15,6 +15,9 @@ while true; do
 
     if [[ "$choice" == ". (open here)" ]]; then
         $FILEMANAGER "$current" &
+        exit 0
+    elif [[ "$choice" == ". (open terminal here)" ]]; then
+        ghostty -e bash -c "cd '$current' && exec $SHELL" &
         exit 0
     elif [[ "$choice" == ".." ]]; then
         current=$(dirname "$current")
