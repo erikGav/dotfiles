@@ -17,6 +17,12 @@ label=
 interval=5
 PERCENT=false
 
+[power]
+command=$SCRIPTS_DIR/power.sh
+label=⚡
+interval=10
+color=#EBDBB2
+
 [calendar]
 command=$SCRIPTS_DIR/calendar.sh
 interval=1
