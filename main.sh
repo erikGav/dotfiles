@@ -62,6 +62,7 @@ function ask_stow() {
 function install_zsh() {
     local config_dir="$DOTFILES_DIR/config"
 
+    [[ ! -d "$HOME/.config" ]] && mkdir -p "$HOME/.config"
     echo "Running stow for zsh files..."
     (cd "$config_dir" && stow zsh p10k) || {
         echo "Error stowing zsh files"
