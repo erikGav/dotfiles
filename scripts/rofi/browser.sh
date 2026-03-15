@@ -8,6 +8,7 @@ declare -A sites=(
     ["󰃭 Calendar@develeap"]="https://calendar.google.com/calendar/u/4/r"
     ["󰃭 Calendar@work"]="https://calendar.google.com/calendar/u/0/r"
     [" Maps"]="https://www.google.com/maps"
+    ["@ Email@personal"]="https://mail.google.com/mail/u/1/#inbox"
 )
 
 order=(
@@ -16,6 +17,7 @@ order=(
     " Maps"
     "󰃭 Calendar@develeap"
     "󰃭 Calendar@work"
+    "@ Email@personal"
 )
 
 options=$(printf "%s\n" "${order[@]}")
