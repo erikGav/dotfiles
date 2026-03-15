@@ -60,22 +60,13 @@ function ask_stow() {
 }
 
 function install_zsh() {
-    local zsh_dirs=("config/zsh" "config/p10k")
+    local config_dir="$DOTFILES_DIR/config"
 
-    for dir_name in "${zsh_dirs[@]}"; do
-        local dir_path="$DOTFILES_DIR/$dir_name"
-
-        if [[ ! -d "$dir_path" ]]; then
-            echo "Warning: Directory $dir_name not found, skipping..."
-            continue
-        fi
-
-        echo "Running stow for $dir_name files..."
-        (cd "$dir_path" && sudo env "PATH=$PATH" stow .) || {
-            echo "Error stowing $dir_name"
-            return 1
-        }
-    done
+    echo "Running stow for zsh files..."
+    (cd "$config_dir" && sudo env "PATH=$PATH" stow zsh p10k) || {
+        echo "Error stowing zsh files"
+        return 1
+    }
 
     run_script "zshenv-setup" || return 1
     echo "Zsh install completed successfully!"
