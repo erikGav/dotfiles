@@ -63,7 +63,7 @@ function install_zsh() {
     local config_dir="$DOTFILES_DIR/config"
 
     echo "Running stow for zsh files..."
-    (cd "$config_dir" && sudo env "PATH=$PATH" stow zsh p10k) || {
+    (cd "$config_dir" && stow zsh p10k) || {
         echo "Error stowing zsh files"
         return 1
     }
