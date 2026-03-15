@@ -60,14 +60,15 @@ function ask_stow() {
 }
 
 function install_zsh() {
-    local config_dir="$DOTFILES_DIR/config"
+    mkdir -p "$HOME/.config"
 
-    [[ ! -d "$HOME/.config" ]] && mkdir -p "$HOME/.config"
-    echo "Running stow for zsh files..."
-    (cd "$config_dir" && stow zsh p10k) || {
-        echo "Error stowing zsh files"
-        return 1
-    }
+    for pkg in zsh p10k; do
+        echo "Linking $pkg..."
+        ln -sfn "$DOTFILES_DIR/config/$pkg" "$HOME/.config/$pkg" || {
+            echo "Error linking $pkg"
+            return 1
+        }
+    done
 
     run_script "zshenv-setup" || return 1
     echo "Zsh install completed successfully!"
