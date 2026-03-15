@@ -33,7 +33,7 @@ function run_stow() {
         fi
 
         echo "Running stow for $dir_name files..."
-        (cd "$dir_path" && sudo stow .) || {
+        (cd "$dir_path" && sudo env "PATH=$PATH" stow .) || {
             echo "Error stowing $dir_name"
             return 1
         }
@@ -71,7 +71,7 @@ function install_zsh() {
         fi
 
         echo "Running stow for $dir_name files..."
-        (cd "$dir_path" && sudo stow .) || {
+        (cd "$dir_path" && sudo env "PATH=$PATH" stow .) || {
             echo "Error stowing $dir_name"
             return 1
         }
