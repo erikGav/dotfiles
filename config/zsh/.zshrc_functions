@@ -1,3 +1,16 @@
+c() {
+  if grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null; then
+    clip.exe
+  elif [[ -n "$DISPLAY" || -n "$WAYLAND_DISPLAY" ]]; then
+    xclip -selection clipboard
+  elif [[ -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then
+    printf "\033]52;c;$(base64 | tr -d '\n')\007"
+  else
+    echo "clipboard: unsupported environment" >&2
+    return 1
+  fi
+}
+
 k8s_nuke() {
     local namespace=""
     local dry_run=false
