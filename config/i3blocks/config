@@ -17,6 +17,12 @@ label=
 interval=5
 PERCENT=false
 
+[volume-pulseaudio]
+command=$SCRIPTS_DIR/volume-pulseaudio.sh
+interval=1
+LONG_FORMAT=${SYMB} ${VOL}%
+SHORT_FORMAT=${SYMB} ${VOL}%
+
 [calendar]
 command=$SCRIPTS_DIR/calendar.sh
 interval=1

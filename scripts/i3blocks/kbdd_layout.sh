@@ -45,6 +45,9 @@ dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
   /ru/gentoo/KbddService ru.gentoo.kbdd.getLayoutName uint32:"$N" |\
   grep -Po "${MATCH}" | head -n1
 
-# Parse dbus output.
-dbus-monitor "interface='ru.gentoo.kbdd',member='layoutNameChanged'" |\
-  grep -Po --line-buffered "(?<=string \")${MATCH}"
+# Parse dbus output. Retry if dbus-monitor exits (e.g. not ready at boot).
+while true; do
+  dbus-monitor "interface='ru.gentoo.kbdd',member='layoutNameChanged'" |\
+    grep -Po --line-buffered "(?<=string \")${MATCH}"
+  sleep 1
+done
