@@ -45,9 +45,17 @@ dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
   /ru/gentoo/KbddService ru.gentoo.kbdd.getLayoutName uint32:"$N" |\
   grep -Po "${MATCH}" | head -n1
 
-# Parse dbus output. Retry if dbus-monitor exits (e.g. not ready at boot).
+# Poll kbdd for layout changes.
+LAST_N=$N
 while true; do
-  dbus-monitor "interface='ru.gentoo.kbdd',member='layoutNameChanged'" |\
-    grep -Po --line-buffered "(?<=string \")${MATCH}"
-  sleep 1
+    sleep 0.5
+    N=$( dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
+        /ru/gentoo/KbddService ru.gentoo.kbdd.getCurrentLayout 2>/dev/null |\
+        sed -un 's/^.*uint32 //p' )
+    if [[ -n "$N" && "$N" != "$LAST_N" ]]; then
+        dbus-send --print-reply=literal --dest=ru.gentoo.KbddService \
+            /ru/gentoo/KbddService ru.gentoo.kbdd.getLayoutName uint32:"$N" |\
+            grep -Po "${MATCH}" | head -n1
+        LAST_N=$N
+    fi
 done

@@ -109,7 +109,9 @@ case "$BLOCK_BUTTON" in
     1) set_default_playback_device_next ;;
     2) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
     3) set_default_playback_device_next -1 ;;
-    4) pactl set-sink-volume @DEFAULT_SINK@ +${AUDIO_DELTA}% ;;
+    4) pactl set-sink-volume @DEFAULT_SINK@ +${AUDIO_DELTA}%
+       VOL_NOW=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\d+%' | head -1 | tr -d '%')
+       [[ $VOL_NOW -gt 100 ]] && pactl set-sink-volume @DEFAULT_SINK@ 100% ;;
     5) pactl set-sink-volume @DEFAULT_SINK@ -${AUDIO_DELTA}% ;;
 esac
 
