@@ -10,6 +10,7 @@ font pango:MesloLGS NF 10
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/dotfiles/scripts/locked.png
 exec --no-startup-id nm-applet
+exec --no-startup-id bash -c "sleep 3 && pactl set-sink-volume @DEFAULT_SINK@ 50%"
 
 set $refresh_i3blocks pkill -RTMIN+1 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3blocks
