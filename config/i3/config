@@ -98,6 +98,7 @@ bindsym $mod+Tab     exec --no-startup-id rofi -show window -window-sort-method 
 bindsym $mod+Ctrl+e  exec --no-startup-id ~/dotfiles/scripts/rofi/filemanager.sh
 bindsym $mod+Shift+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+e exec --no-startup-id rofi -show power-menu -modi "power-menu:~/dotfiles/scripts/rofi/powermenu.sh --confirm='' --choices=lockscreen/logout/suspend/reboot/shutdown" -theme ~/.config/rofi/powermenu.rasi
+bindsym $mod+Shift+s exec --no-startup-id ~/dotfiles/scripts/rofi/ssh.sh
 bindsym $mod+Shift+l exec --no-startup-id ~/dotfiles/scripts/i3/toggle-i3lock.sh
 
 set $ws1  "1: "
