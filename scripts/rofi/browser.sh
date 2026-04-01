@@ -3,17 +3,19 @@
 BROWSER="brave-browser"
 
 declare -A sites=(
+    [" Homepage"]="https://erikghome.duckdns.org"
     [" Google"]="https://www.google.com"
     [" YouTube"]="https://www.youtube.com"
+    [" Maps"]="https://www.google.com/maps"
     ["󰃭 Calendar@develeap"]="https://calendar.google.com/calendar/u/4/r"
     ["󰃭 Calendar@work"]="https://calendar.google.com/calendar/u/0/r"
-    [" Maps"]="https://www.google.com/maps"
     ["@ Email@personal"]="https://mail.google.com/mail/u/1/#inbox"
     ["@ Email@develeap"]="https://mail.google.com/mail/u/4/#inbox"
     ["@ Email@work"]="https://mail.google.com/mail/u/0/#inbox"
 )
 
 order=(
+    " Homepage"
     " Google"
     " YouTube"
     " Maps"

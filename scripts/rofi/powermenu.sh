@@ -266,7 +266,7 @@ else
                 echo "Selected: $entry" >&2
             else
                 # Perform the action
-                ${actions[$entry]}
+                eval "${actions[$entry]}"
             fi
             exit 0
         fi

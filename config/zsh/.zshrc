@@ -35,6 +35,10 @@ source $XDG_CONFIG_HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
+if [ -z "$SSH_AUTH_SOCK" ]; then
+      eval $(ssh-agent -s) > /dev/null 2>&1
+fi
+
 export NVM_DIR="$HOME/.config/nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then
   . "$NVM_DIR/nvm.sh"
