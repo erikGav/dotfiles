@@ -81,6 +81,7 @@
     gcloud                  # google cloud cli account and project (https://cloud.google.com/)
     google_app_cred         # google application credentials (https://cloud.google.com/docs/authentication/production)
     toolbox                 # toolbox name (https://github.com/containers/toolbox)
+    my_container            # show when inside a container (docker/podman)
     context                 # user@hostname
     nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
     ranger                  # ranger shell (https://github.com/ranger/ranger)
@@ -1792,6 +1793,12 @@
     # and regular prompts.
     prompt_example
   }
+
+  ####################[ my_container: docker/podman/lxc indicator ]####################
+  # Shown only when inside a container. Blue background, black text.
+  typeset -g POWERLEVEL9K_MY_CONTAINER_FOREGROUND=7
+  typeset -g POWERLEVEL9K_MY_CONTAINER_BACKGROUND=4
+  typeset -g POWERLEVEL9K_MY_CONTAINER_VISUAL_IDENTIFIER_EXPANSION='󰡨'
 
   # User-defined prompt segments can be customized the same way as built-in segments.
   typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=3

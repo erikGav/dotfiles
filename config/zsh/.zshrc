@@ -26,6 +26,20 @@ plugins=(git aws docker docker-compose terraform kubectl)
 DEFAULT_USER=erikg
 [[ ! -f $XDG_CONFIG_HOME/p10k/.p10k.zsh ]] || source $XDG_CONFIG_HOME/p10k/.p10k.zsh
 
+# p10k custom segment: show container type when running inside a container
+function prompt_my_container() {
+  local name=""
+  if [[ -f /.dockerenv ]]; then
+    name="docker"
+  elif [[ -f /run/.containerenv ]]; then
+    name=$(grep -oP '(?<=name=")[^"]+' /run/.containerenv 2>/dev/null)
+    name="${name:-podman}"
+  elif grep -qa 'docker\|lxc' /proc/1/cgroup 2>/dev/null; then
+    name="container"
+  fi
+  [[ -n "$name" ]] && p10k segment -b 4 -f 7 -i '󰡨' -t "$name"
+}
+
 
 source $ZSH/oh-my-zsh.sh
 source $XDG_CONFIG_HOME/zsh/.zshrc_aliases
