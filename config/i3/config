@@ -8,7 +8,7 @@ set $mod Mod4
 font pango:MesloLGS NF 10
 
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/dotfiles/scripts/locked.png
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -i ~/dotfiles/scripts/misc/locked.png
 exec --no-startup-id nm-applet
 exec --no-startup-id bash -c "sleep 3 && pactl set-sink-volume @DEFAULT_SINK@ 50%"
 
@@ -23,7 +23,7 @@ tiling_drag modifier titlebar
 
 bindsym $mod+Shift+q kill
 bindsym $mod+Return  exec i3-sensible-terminal
-bindsym $mod+l       exec i3lock -i ~/dotfiles/scripts/locked.png
+bindsym $mod+l       exec i3lock -i ~/dotfiles/scripts/misc/locked.png
 
 bindsym $mod+Up    focus up
 bindsym $mod+Down  focus down
@@ -156,7 +156,7 @@ exec --no-startup-id ~/dotfiles/scripts/i3/slack-work-hours.sh
 
 exec_always --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id "sleep 5 && setxkbmap -layout us,il,ru -option grp:win_space_toggle"
-exec_always feh --bg-scale ~/dotfiles/scripts/wallpaper.jpeg
+exec_always feh --bg-scale ~/dotfiles/scripts/misc/wallpaper.jpeg
 
 
 # exec rofi -show drun -filter 'Spotify' -auto-select -run-command '{cmd}'
