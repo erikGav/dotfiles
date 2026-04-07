@@ -1,3 +1,4 @@
+alias rofi-reset='pkill -x rofi; rm -f /run/user/$UID/rofi.pid'
 alias vi=nvim
 alias oo='gio open .'
 alias cls=clear
