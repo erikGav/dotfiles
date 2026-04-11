@@ -51,6 +51,7 @@ eval "$(atuin init zsh)"
 
 if [ -z "$SSH_AUTH_SOCK" ]; then
       eval $(ssh-agent -s) > /dev/null 2>&1
+      trap "kill $SSH_AGENT_PID" EXIT
 fi
 
 export NVM_DIR="$HOME/.config/nvm"
