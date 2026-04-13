@@ -43,8 +43,8 @@ actions[lockscreen]="loginctl lock-session ${XDG_SESSION_ID-}"
 actions[logout]="i3-msg exit"
 actions[suspend]="systemctl suspend"
 actions[hibernate]="systemctl hibernate"
-actions[reboot]="sed -i '/xrdp/d' ~/.local/state/wireplumber/default-nodes; systemctl reboot"
-actions[shutdown]="sed -i '/xrdp/d' ~/.local/state/wireplumber/default-nodes; systemctl poweroff"
+actions[reboot]="sed -i '/xrdp/d' ~/.local/state/wireplumber/default-nodes 2>/dev/null || true; systemctl reboot"
+actions[shutdown]="sed -i '/xrdp/d' ~/.local/state/wireplumber/default-nodes 2>/dev/null || true; systemctl poweroff"
 
 # By default, ask for confirmation for actions that are irreversible
 confirmations=(reboot shutdown logout)
