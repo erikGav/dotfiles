@@ -39,9 +39,10 @@ GetOptions("help|h" => \&help,
 $ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
 open (MPSTAT, 'mpstat 1 1 |') or die;
 while (<MPSTAT>) {
-    if (/^.*\s+(\d+\.\d+)[\s\x00]?$/) {
-        $cpu_usage = 100 - $1; # 100% - %idle
-        last;
+    # columns: %usr %nice %sys %iowait %irq %soft %steal %guest %gnice %idle
+    if (/\ball\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/) {
+        my ($usr, $nice, $sys, $iowait, $irq, $soft, $steal, $guest, $gnice, $idle) = ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10);
+        $cpu_usage = $usr + $nice + $sys + $irq + $soft + $steal + $guest + $gnice;
     }
 }
 close(MPSTAT);
