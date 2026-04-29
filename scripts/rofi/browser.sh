@@ -3,7 +3,7 @@
 BROWSER="brave-browser"
 
 declare -A sites=(
-    [" Homepage"]="https://erikghome.duckdns.org"
+    [" Homepage"]="https://home.nuxlet.com"
     [" Google"]="https://www.google.com"
     [" YouTube"]="https://www.youtube.com"
     [" Maps"]="https://www.google.com/maps"
