@@ -11,6 +11,10 @@ c() {
   fi
 }
 
+catls() {
+    [[ -f "$1" ]] && cat "$1" || ls "${1:-.}";
+}
+
 k8s_nuke() {
     local namespace=""
     local dry_run=false
