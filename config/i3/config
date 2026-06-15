@@ -140,7 +140,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 assign [class="Brave-browser" window_role="browser"] $ws1
 assign [class="Code"]                                $ws2
 assign [class="discord"]                             $ws3
-assign [class="Slack"]                               $ws3
+assign [class="slack"]                               $ws3
 assign [class="PPSSPPSDL"]                           $ws8
 assign [class="(sober|org.vinegarhq.Sober)"]         $ws8
 assign [class="steam"]                               $ws8
