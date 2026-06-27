@@ -7,6 +7,8 @@ alias python=python3
 alias matrix="cmatrix"
 alias cat="batcat --paging=never"
 alias catp="batcat --style=plain --paging=never"
+alias cc="claude"
+alias cc!="claude --dangerously-skip-permissions"
 
 if grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null; then
   alias aws_login="aws sso login --sso-session gov.il --use-device-code"
