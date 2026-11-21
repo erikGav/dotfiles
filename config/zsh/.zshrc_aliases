@@ -9,9 +9,9 @@ alias cat="batcat --paging=never"
 alias catp="batcat --style=plain --paging=never"
 alias cc="claude"
 alias cc!="claude --dangerously-skip-permissions"
+alias awslogin="aws sso login --sso-session gov.il --use-device-code"
 
 if grep -qi microsoft /proc/sys/kernel/osrelease 2>/dev/null; then
-  alias awslogin="aws sso login --sso-session gov.il --use-device-code"
   alias ssh="ssh.exe"
 fi
 

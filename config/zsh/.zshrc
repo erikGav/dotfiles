@@ -13,6 +13,7 @@ export EDITOR="code --wait"
 export GTK_THEME="Material-Black-Mango"
 export GPG_TTY=$TTY
 export LANG=en_US.UTF-8
+export KUBECONFIG="$HOME/.kube/config:$HOME/.kube/k3s.yaml"
 
 if grep -qi microsoft /proc/version 2>/dev/null; then
   export BROWSER="wslview:xdg-open"

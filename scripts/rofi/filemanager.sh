@@ -28,7 +28,14 @@ while true; do
     elif [[ -d "${choice/#\~/$HOME}" ]]; then
         current="${choice/#\~/$HOME}"
     else
-        $FILEMANAGER "$current" &
+        # Resolve the choice to a path and open it with its default app
+        target="${current%/}/$choice"
+        [[ -e "$target" ]] || target="${choice/#\~/$HOME}"
+        if [[ -f "$target" ]]; then
+            setsid -f xdg-open "$target" >/dev/null 2>&1
+        else
+            $FILEMANAGER "$current" &
+        fi
         exit 0
     fi
 done
